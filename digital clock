@@ -1,0 +1,28 @@
+import tkinter as tk
+from tkinter import *
+from time import strftime
+from PIL import Image, ImageTk
+
+
+window_main=tk.Tk()
+window_main.title("Digital Wall clock")
+window_main.geometry('1000x525')
+
+#import image
+img=ImageTk.PhotoImage(Image.open("C:\\Users\\M.Parijatham\\Documents\\babyimage\\wallimage1.jpg"))
+l=Label(image=img)
+l.pack()
+
+def time():
+    text=strftime('%H:%M:%S %p')
+    label.config(text=text)
+    label.after(1000,time)
+
+label=Label(window_main,font=("ds-digital",15,"bold"), background="black",height=2 ,borderwidth=1, relief="solid", 
+foreground="white")
+label.place(x=750,y=190)
+time()
+
+
+
+window_main.mainloop()
